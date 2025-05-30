@@ -217,11 +217,10 @@
                     <div class="content has-text-justified">
                         <div class="column is-max-desktop">
                             <p>
-                                In this section we compare results of our inpainting module only (without pre- and post-processing) to the following methods:
+                                In this section we compare results of our fine-tuned ControlNet inpainting, controlled by Canny edges extracted from depth and normal images, with the following control methods:
                                 <ul>
-                                    <li><a href="https://huggingface.co/stabilityai/stable-diffusion-2-inpainting">Stable Diffusion 2 Inpainting</a></li>
-                                    <li><a href="https://github.com/advimman/lama">LaMa: Resolution-robust Large Mask Inpainting with Fourier Convolutions</a></li>
-                                    <li><a href="https://github.com/ericsujw/LGPN-net">LGPN-Net: Layout-guided Indoor Panorama Inpainting with Plane-aware Normalization</a></li>
+                                    <li><a href="https://huggingface.co/stabilityai/stable-diffusion-2-inpainting">Stable Diffusion 2 Inpainting</a>, i.e. no control signal</li>
+                                    <li><a href="https://huggingface.co/thibaud/controlnet-sd21">ControlNet based on RGB image Canny edges</a> by Thibaud Zamora</li>
                                 </ul>
                             </p>
                             <script>

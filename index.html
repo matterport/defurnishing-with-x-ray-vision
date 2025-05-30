@@ -137,13 +137,20 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            We propose a pipeline that leverages Stable Diffusion to improve inpainting results in the
-                            context of defurnishing---the removal of furniture items from indoor panorama images.
-                            Specifically, we illustrate how increased context, domain-specific model fine-tuning, and
-                            improved image blending can produce high-fidelity inpaints that are geometrically plausible
-                            without needing to rely on room layout estimation.
-                            We demonstrate qualitative and quantitative improvements over other furniture removal
-                            techniques.
+                            We present a pipeline for generating defurnished replicas of indoor spaces represented as
+                            textured meshes and corresponding multi-view panoramic images.
+                            To achieve this, we first segment and remove furniture from the mesh representation, extend
+                            planes, and fill holes, obtaining a simplified defurnished mesh (SDM).
+                            This SDM acts as an ``X-ray'' of the scene's underlying structure, guiding the defurnishing
+                            process. We extract Canny edges from depth and normal images rendered from the SDM.
+                            We then use these as a guide to remove the furniture from panorama images via ControlNet
+                            inpainting.
+                            This control signal ensures the availability of global geometric information that may be
+                            hidden from a particular panoramic view by the furniture being removed.
+                            The inpainted panoramas are used to texture the mesh.
+                            We show that our approach produces higher quality assets than methods that rely on neural
+                            radiance fields, which tend to produce blurry low-resolution images, or RGB-D inpainting,
+                            which is highly susceptible to hallucinations.
                         </p>
                     </div>
                 </div>

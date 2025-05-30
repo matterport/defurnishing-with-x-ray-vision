@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Automatic Defurnishing of Indoor Panoramas">
+    <meta name="keywords" content="defurnishing, panoramas, indoor">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Automatic Defurnishing of Indoor Panoramas</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/script.js"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛋️</text></svg>" />
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-four-fifths">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <!-- <div class="is-size-2 publication-authors">
+                    <img src="./static/logo.png" alt="Matterport" style="height: 8rem; margin: 5rem;">
+                </div>
+                <BR><BR> -->
+                        <h1 class="title is-1 publication-title">An Empty Room is All We Want: <br> Automatic Defurnishing of Indoor Panoramas</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                Mira Slavcheva<sup>*</sup>,</span>
+                            <span class="author-block">
+                                Dave Gausebeck<sup>*</sup>,</span>
+                            <span class="author-block">
+                                Kevin Chen<sup>*</sup>,
+                            </span><BR>
+                            <span class="author-block">
+                                David Buchhofer,
+                            </span>
+                            <span class="author-block">
+                                Azwad Sabik,
+                            </span>
+                            <span class="author-block">
+                                Chen Ma,
+                            </span>
+                            <span class="author-block">
+                                Sachal Dhillon,
+                            </span>
+                            <span class="author-block">
+                                Olaf Brandt,
+                            </span>
+                            <span class="author-block">
+                                Alan Dolhasz
+                            </span>
+                            <div class="is-size-6 publication-authors"><i><span class="author-block"></span><sup>*</sup>
+                                    denotes equal contribution </span></i></div>
+                        </div>
+                        <div class="is-size-2 publication-authors">
+                            <a target="_blank" href="https://matterport.com"><img src="./static/images/logo.png"
+                                    alt="Matterport" style="height: 2rem; margin-top: 1rem;"></a>
+                        </div>
+
+                        <!--                 
+                <div class="column has-text-centered">
+                  <div class="publication-links">
+                      <span class="link-block">
+                          <a href="https://arxiv.org/pdf/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                              <span class="icon">
+                                  <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                            </a>
+                        </span>
+                    </div>
+                </div> -->
+
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/abs/2405.03682" class="external-link button is-normal is-rounded is-black">
+                                        <span> &nbsp; &nbsp; &nbsp; &nbsp; </span>
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv &nbsp; &nbsp; &nbsp; &nbsp;</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#results" class="external-link button is-normal is-rounded is-black">
+                                        <span> &nbsp; &nbsp; &nbsp; </span>
+                                        <span class="icon">
+                                            <i class="fas fa-image"></i>
+                                        </span>
+                                        <span>Results &thinsp; &nbsp; &nbsp; </span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#comparisons" class="external-link button is-normal is-rounded is-black">
+                                        <span class="icon">
+                                            <i class="fas fa-images"></i>
+                                        </span>
+                                        <span>Comparisons</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We propose a pipeline that leverages Stable Diffusion to improve inpainting results in the
+                            context of defurnishing---the removal of furniture items from indoor panorama images.
+                            Specifically, we illustrate how increased context, domain-specific model fine-tuning, and
+                            improved image blending can produce high-fidelity inpaints that are geometrically plausible
+                            without needing to rely on room layout estimation.
+                            We demonstrate qualitative and quantitative improvements over other furniture removal
+                            techniques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Pipeline. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Overview</h2>
+                    <div class="content has-text-justified">
+                        <img src="static/images/pipeline.png">
+                        <p>
+                            Our pipeline consists of the following components:
+                            <ul>
+                                <li><b>Pre-processing</b>: Furniture mask estimation via semantic segmentation &amp; image rolling and padding to ensure optimal context, and downsampling to fit into a Stable Diffusion pipeline.</li>
+                                <li><b>Inpainting</b>: Our custom inpainting, fine-tuned on equirectangular panoramas and robust to inexact masks and remnant shadows, thus reducing the tendency of Stable Diffusion inpainting to hallucinate objects.</li>
+                                <li><b>Post-processing</b>: Super-resolution and blending of the original and inpainted images, so that high-frequency details are preserved.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Pipeline. -->
+        </div>
+    </section>
+
+    <section class="section" id="images-container">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3" id="results">Results</h2>
+                    <div class="content has-text-justified">
+                        <div class="column is-max-desktop">
+                            <p>
+                                This section shows results from our full defurnishing pipeline.
+                            </p>
+                            <script>
+                                generateImagePairs(imagePairs, "images-container", "result");
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="images-container-comparisons">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3" id="comparisons">Comparisons</h2>
+                    <div class="content has-text-justified">
+                        <div class="column is-max-desktop">
+                            <p>
+                                In this section we compare results of our inpainting module only (without pre- and post-processing) to the following methods:
+                                <ul>
+                                    <li><a href="https://huggingface.co/stabilityai/stable-diffusion-2-inpainting">Stable Diffusion 2 Inpainting</a></li>
+                                    <li><a href="https://github.com/advimman/lama">LaMa: Resolution-robust Large Mask Inpainting with Fourier Convolutions</a></li>
+                                    <li><a href="https://github.com/ericsujw/LGPN-net">LGPN-Net: Layout-guided Indoor Panorama Inpainting with Plane-aware Normalization</a></li>
+                                </ul>
+                            </p>
+                            <script>
+                                generateImageSets(comparisonSets, "images-container-comparisons");
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+</body>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Acknowledgements</h2>
+                <div class="content has-text-justified">
+                <p>
+                    We are greateful to Dorra Larnaout, Gregor Miller, Gunnar Hovden, Ky Waegel, Mykhaylo Kurinnyy, and Neil Jassal for their contributions to this work. 
+                    We also thank Alexander Demidko and Kevin Balkoski for useful discussions.
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Citation. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">BibTeX</h2>
+                <div class="content has-text-justified">
+                <p>
+                    The paper has been accepted to the <a href="https://generative-vision.github.io/workshop-CVPR-24/">Workshop on Generative Models for Computer Vision</a> at CVPR 2024.
+                    A short version has been accepted to the <a href="https://cv4aec.github.io/">Workshop on Computer Vision in the Built Environment</a> at CVPR 2024.
+                </p>
+                    <pre><code>@inproceedings{matterport2024defurnishing,
+    author    = {Slavcheva, Mira and Gausebeck, Dave and Chen, Kevin and Buchhofer, David and Sabik, Azwad and Ma, Chen and Dhillon, Sachal and Brandt, Olaf and Dolhasz, Alan},
+    title     = {An Empty Room is All We Want: Automatic Defurnishing of Indoor Panoramas},
+    booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+    year      = {2024},
+}</code></pre>
+                </div>
+            </div>
+        </div>
+        <!--/ Citation. -->
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-8">
+                <p>
+                    Website built over template kindly open sourced <a href="https://github.com/nerfies/nerfies.github.io">here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

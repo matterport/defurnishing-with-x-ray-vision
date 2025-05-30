@@ -196,32 +196,41 @@ const comparisonPairs = [
 
 const comparisonSets = [
     {
-        ours: "static/images/00023-zepmXAdrpjR/9985900c24be46bfa6af793fb34e393d_eq_inpainted_comparesd.jpg",
-        sd: "static/images/00023-zepmXAdrpjR/9985900c24be46bfa6af793fb34e393d_eq_vanilla_10dilate.jpg",
-        lama: "static/images/00023-zepmXAdrpjR/9985900c24be46bfa6af793fb34e393d_eq_lama_10dilate.png",
-        lgpn: "static/images/00023-zepmXAdrpjR/9985900c24be46bfa6af793fb34e393d_eq_inpainted_lgpn_dilate10_resized.jpg",
+        ours: "static/images/27750c841e004f24b71cb1a30c57f847_eq_defurnished_cn.jpg",
+        sd: "static/images/27750c841e004f24b71cb1a30c57f847_eq_defurnished_sd.jpg",
+        cn_shelf: "static/images/27750c841e004f24b71cb1a30c57f847_eq_defurnished_cn_shelf.jpg",
     },
 
     {
-        ours: "static/images/00162-1sM6KvYg3J5/a34d271e105744eabf60aa40f802c9d5_eq_inpainted_comparesd.jpg",
-        sd: "static/images/00162-1sM6KvYg3J5/a34d271e105744eabf60aa40f802c9d5_eq_vanilla_20dilate.jpg",
-        lama: "static/images/00162-1sM6KvYg3J5/a34d271e105744eabf60aa40f802c9d5_eq_lama_20dilate.png",
-        lgpn: "static/images/00162-1sM6KvYg3J5/a34d271e105744eabf60aa40f802c9d5_eq_inpainted_lgpn_dilate10_resized.jpg",
+        ours: "static/images/2e3eb5ed1c2b422689bd6920078459ac_eq_defurnished_cn.jpg",
+        sd: "static/images/2e3eb5ed1c2b422689bd6920078459ac_eq_defurnished_sd.jpg",
+        cn_shelf: "static/images/2e3eb5ed1c2b422689bd6920078459ac_eq_defurnished_cn_shelf.jpg",
     },
 
     {
-        ours: "static/images/00469-ochRmQAHtkF/eb59a0c1b01a4f7085fb3aec815cdde7_eq_inpainted_comparesd.jpg",
-        sd: "static/images/00469-ochRmQAHtkF/eb59a0c1b01a4f7085fb3aec815cdde7_eq_vanilla_20dilate.jpg",
-        lama: "static/images/00469-ochRmQAHtkF/eb59a0c1b01a4f7085fb3aec815cdde7_eq_lama_20dilate.png",
-        lgpn: "static/images/00469-ochRmQAHtkF/eb59a0c1b01a4f7085fb3aec815cdde7_eq_inpainted_lgpn_dilate10_resized.jpg",
+        ours: "static/images/3b49385430e142aa8251b52fdd7921f9_eq_defurnished_cn.jpg",
+        sd: "static/images/3b49385430e142aa8251b52fdd7921f9_eq_defurnished_sd.jpg",
+        cn_shelf: "static/images/3b49385430e142aa8251b52fdd7921f9_eq_defurnished_cn_shelf.jpg",
     },
 
     {
-        ours: "static/images/00862-LT9Jq6dN3Ea/ca9c4eca2d6f41aa8bf2d6a8a5407b15_eq_inpainted_comparesd.jpg",
-        sd: "static/images/00862-LT9Jq6dN3Ea/ca9c4eca2d6f41aa8bf2d6a8a5407b15_eq_vanilla_10dilate.jpg",
-        lama: "static/images/00862-LT9Jq6dN3Ea/ca9c4eca2d6f41aa8bf2d6a8a5407b15_eq_lama_10dilate.png",
-        lgpn: "static/images/00862-LT9Jq6dN3Ea/ca9c4eca2d6f41aa8bf2d6a8a5407b15_eq_inpainted_lgpn_dilate10_resized.jpg",
+        ours: "static/images/5bdfa8a121ce4ed8acea5f9645130eb6_eq_defurnished_cn.jpg",
+        sd: "static/images/5bdfa8a121ce4ed8acea5f9645130eb6_eq_defurnished_sd.jpg",
+        cn_shelf: "static/images/5bdfa8a121ce4ed8acea5f9645130eb6_eq_defurnished_cn_shelf.jpg",
     },
+
+    {
+        ours: "static/images/6b17a011f9894a709f22a0a7bf4ea71b_eq_defurnished_cn.jpg",
+        sd: "static/images/6b17a011f9894a709f22a0a7bf4ea71b_eq_defurnished_sd.jpg",
+        cn_shelf: "static/images/6b17a011f9894a709f22a0a7bf4ea71b_eq_defurnished_cn_shelf.jpg",
+    },
+
+    {
+        ours: "static/images/f90112829bc2462980e0ec5b9c0809cc_eq_defurnished_cn.jpg",
+        sd: "static/images/f90112829bc2462980e0ec5b9c0809cc_eq_defurnished_sd.jpg",
+        cn_shelf: "static/images/f90112829bc2462980e0ec5b9c0809cc_eq_defurnished_cn_shelf.jpg",
+    },
+
 ];
 
 // Function to generate HTML structure for image pairs

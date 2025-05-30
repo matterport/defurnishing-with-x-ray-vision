@@ -71,7 +71,7 @@
                                 Olaf Brandt,
                             </span>
                             <span class="author-block">
-                                Mira Slavcheva,
+                                Mira Slavcheva
                             </span>
                             <div class="is-size-6 publication-authors"><i><span class="author-block"></span><sup>*</sup>
                                     denotes equal contribution </span></i></div>
@@ -99,7 +99,7 @@
                         <div class="column has-text-centered">
                             <div class="publication-links">
                                 <span class="link-block">
-                                    <a href="https://arxiv.org/abs/2405.03682" class="external-link button is-normal is-rounded is-black">
+                                    <a href="https://arxiv.org/abs/tbd.tbd" class="external-link button is-normal is-rounded is-black">
                                         <span> &nbsp; &nbsp; &nbsp; &nbsp; </span>
                                         <span class="icon">
                                             <i class="ai ai-arxiv"></i>
@@ -174,12 +174,12 @@
                             Our pipeline consists of the following components:
 
                             <ul>
-                                <li><b>Furniture segmentation</b>: We use a semantic segmentation model to estimate the furniture mask from the panorama images.</li>
+                                <li><b>Furniture segmentation</b>: We use our fine-tuned semantic segmentation model to estimate the furniture mask from the panorama images.</li>
                                 <li><b>Mesh simplification and defurnishing</b>: We simplify the mesh by removing small components, then remove furniture and extend planes to fill holes, obtaining a simplified defurnished mesh (SDM).</li>
                                 <li><b>Control signal extraction</b>: We extract Canny edges from depth and normal images rendered from the SDM, which serve as a control signal for the inpainting.</li>
-                                <li><b>Inpainting</b>: We use ControlNet inpainting to remove furniture from panorama images, guided by the extracted edges.</li>
-                                <li><b>Super-resolution</b>: We apply a super-resolution model to enhance the resolution of the inpainted panoramas.</li>
-                                <li><b>Texturing</b>: The inpainted panoramas are used to texture the mesh.</li>
+                                <li><b>Inpainting</b>: We use our fine-tuned ControlNet inpainting to remove furniture from panorama images, guided by the extracted edges.</li>
+                                <li><b>Super-resolution</b>: We apply our custom super-resolution model to enhance the resolution of the inpainted panoramas.</li>
+                                <li><b>Texturing</b>: The inpainted panoramas are used to texture the defurnished mesh.</li>
                             </ul>
                         </p>
                     </div>
@@ -243,8 +243,7 @@
                 <h2 class="title is-3">Acknowledgements</h2>
                 <div class="content has-text-justified">
                 <p>
-                    We are greateful to Dorra Larnaout, Gregor Miller, Gunnar Hovden, Ky Waegel, Mykhaylo Kurinnyy, and Neil Jassal for their contributions to this work. 
-                    We also thank Alexander Demidko and Kevin Balkoski for useful discussions.
+                    We are greateful to Dorra Larnaout, Ky Waegel, Mykhaylo Kurinnyy, Neil Jassal, Will Yu and Senthil Palanisamy for their contributions to this work.
                 </p>
                 </div>
             </div>
@@ -260,14 +259,13 @@
                 <h2 class="title is-3">BibTeX</h2>
                 <div class="content has-text-justified">
                 <p>
-                    The paper has been accepted to the <a href="https://generative-vision.github.io/workshop-CVPR-24/">Workshop on Generative Models for Computer Vision</a> at CVPR 2024.
-                    A short version has been accepted to the <a href="https://cv4aec.github.io/">Workshop on Computer Vision in the Built Environment</a> at CVPR 2024.
+                    The paper has been accepted to the <a href="https://cveu.github.io/">Workshop on AI for Creative Visual Content Generation, Editing and Understanding</a> at CVPR 2025.
                 </p>
                     <pre><code>@inproceedings{matterport2024defurnishing,
-    author    = {Slavcheva, Mira and Gausebeck, Dave and Chen, Kevin and Buchhofer, David and Sabik, Azwad and Ma, Chen and Dhillon, Sachal and Brandt, Olaf and Dolhasz, Alan},
-    title     = {An Empty Room is All We Want: Automatic Defurnishing of Indoor Panoramas},
+    author    = {Dolhasz, Alan and Ma, Chen and Gausebeck, Dave and Chen, Kevin and Miller, Gregor and Hayne, Lucas and Hovden, Gunnar and Sabik, Azwad and Brandt, Olaf and Slavcheva, Mira},
+    title     = {Defurnishing with X-Ray Vision: Joint Removal of Furniture from Panoramas and Mesh},
     booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
-    year      = {2024},
+    year      = {2025},
 }</code></pre>
                 </div>
             </div>

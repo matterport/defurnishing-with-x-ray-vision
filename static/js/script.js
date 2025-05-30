@@ -305,8 +305,7 @@ function generateImageSetsSimple(imageSets, containerId, prefix) {
                 <div class="column is-max-desktop">
                     <h2 class="title is-4">Example ${index + 1}</h2>
                     <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.sd}', ${index}, 'sd')">Compare to Vanilla SD</a>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.lama}', ${index}, 'lama')"> &nbsp; &nbsp; &nbsp; Compare to LaMa &nbsp; &nbsp; &nbsp; </a>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.lgpn}', ${index}, 'lgpn')"> &nbsp; &nbsp; &nbsp; Compare to LGPN &nbsp; &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.cn_shelf}', ${index}, 'cn_shelf')"> &nbsp; &nbsp; &nbsp; Compare to Thibaud Canny ControlNet &nbsp; &nbsp; &nbsp; </a>
                     <br><br>
                     <img src="${set.ours}" id="comp-set-${index}" />
                 </div>
@@ -357,8 +356,7 @@ function generateImageSets(imageSets, containerId) {
                 <div class="column is-max-desktop">
                     <h2 class="title is-4">Example ${index + 1}</h2>
                     <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.sd}', 'SD-2.0-inpainting', ${index})">Compare to Vanilla SD</a>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.lama}', 'LaMa', ${index})"> &nbsp; &nbsp; Compare to LaMa &nbsp; &nbsp; </a>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.lgpn}', 'LGPN', ${index})"> &nbsp; &nbsp; Compare to LGPN &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.cn_shelf}', 'Thibaud Canny ControlNet', ${index})"> &nbsp; &nbsp; Compare to Thibaud Canny ControlNet &nbsp; &nbsp; </a>
                     <div id="container-comp-set-${index}" class="mainSection">
                         <div id="comp-${index}" class="bal-container">
                             <div class="bal-after">

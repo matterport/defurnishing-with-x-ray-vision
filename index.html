@@ -172,10 +172,14 @@
                         <img src="static/images/pipeline.png">
                         <p>
                             Our pipeline consists of the following components:
+
                             <ul>
-                                <li><b>Pre-processing</b>: Furniture mask estimation via semantic segmentation &amp; image rolling and padding to ensure optimal context, and downsampling to fit into a Stable Diffusion pipeline.</li>
-                                <li><b>Inpainting</b>: Our custom inpainting, fine-tuned on equirectangular panoramas and robust to inexact masks and remnant shadows, thus reducing the tendency of Stable Diffusion inpainting to hallucinate objects.</li>
-                                <li><b>Post-processing</b>: Super-resolution and blending of the original and inpainted images, so that high-frequency details are preserved.</li>
+                                <li><b>Furniture segmentation</b>: We use a semantic segmentation model to estimate the furniture mask from the panorama images.</li>
+                                <li><b>Mesh simplification and defurnishing</b>: We simplify the mesh by removing small components, then remove furniture and extend planes to fill holes, obtaining a simplified defurnished mesh (SDM).</li>
+                                <li><b>Control signal extraction</b>: We extract Canny edges from depth and normal images rendered from the SDM, which serve as a control signal for the inpainting.</li>
+                                <li><b>Inpainting</b>: We use ControlNet inpainting to remove furniture from panorama images, guided by the extracted edges.</li>
+                                <li><b>Super-resolution</b>: We apply a super-resolution model to enhance the resolution of the inpainted panoramas.</li>
+                                <li><b>Texturing</b>: The inpainted panoramas are used to texture the mesh.</li>
                             </ul>
                         </p>
                     </div>

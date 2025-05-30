@@ -117,11 +117,19 @@
                                     </a>
                                 </span>
                                 <span class="link-block">
-                                    <a href="#comparisons" class="external-link button is-normal is-rounded is-black">
+                                    <a href="#comparisons1" class="external-link button is-normal is-rounded is-black">
                                         <span class="icon">
                                             <i class="fas fa-images"></i>
                                         </span>
-                                        <span>Comparisons</span>
+                                        <span>Comparisons 1</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#comparisons2" class="external-link button is-normal is-rounded is-black">
+                                        <span class="icon">
+                                            <i class="fas fa-images"></i>
+                                        </span>
+                                        <span>Comparisons 2</span>
                                     </a>
                                 </span>
                             </div>
@@ -213,7 +221,7 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3" id="comparisons">Comparisons</h2>
+                    <h2 class="title is-3" id="comparisons1">Comparisons 1</h2>
                     <div class="content has-text-justified">
                         <div class="column is-max-desktop">
                             <p>
@@ -231,7 +239,33 @@
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
+
+    <section class="section" id="images-container-comparisons2">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3" id="comparisons2">Comparisons 2</h2>
+                    <div class="content has-text-justified">
+                        <div class="column is-max-desktop">
+                            <p>
+                                In this section we compare results of our full inpainting pipeline to radiance fields methods.
+                                For fairness, we run radiance fields methods on perspective images, and we run our method on panoramas and then project to perspective images.
+                                We compare to:
+                                <ul>
+                                    <li><a href="https://instruct-gs2gs.github.io/">Instruct-GS2GS</a></li>
+                                    <li><a href="https://ethanweber.me/nerfiller/">Nerfiller</a></li>
+                                </ul>
+                            </p>
+                            <script>
+                                generateImageSets2(comparisonSets2, "images-container-comparisons2");
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 

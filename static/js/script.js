@@ -233,6 +233,35 @@ const comparisonSets = [
 
 ];
 
+const comparisonSets2 = [
+    {
+        ours: "static/images/d62db60b49074791b96789d2c69214aa_skybox2_ours.jpg",
+        instruct: "static/images/d62db60b49074791b96789d2c69214aa_skybox2_ig2g_removesofa_30k.jpg",
+        nerfiller: "static/images/d62db60b49074791b96789d2c69214aa_skybox2_nerfiller_dilate7.jpg",
+        original: "static/images/d62db60b49074791b96789d2c69214aa_skybox2_orig.jpg",
+    },
+    {
+        ours: "static/images/15c706cb62ca4b40afa265bd32146e8d_skybox3_ours.jpg",
+        instruct: "static/images/15c706cb62ca4b40afa265bd32146e8d_skybox3_ig2g_removesofa.jpg",
+        nerfiller: "static/images/15c706cb62ca4b40afa265bd32146e8d_skybox3_nerfiller_dilate7.jpg",
+        original: "static/images/15c706cb62ca4b40afa265bd32146e8d_skybox3_orig.jpg",
+    },
+    {
+        ours: "static/images/e658e6a2de4643b0855b0c682ff53b21_skybox4_ours.jpg",
+        instruct: "static/images/e658e6a2de4643b0855b0c682ff53b21_skybox4_ig2g_removesofa_30k.jpg",
+        nerfiller: "static/images/e658e6a2de4643b0855b0c682ff53b21_skybox4_nerfiller_dilate11.jpg",
+        original: "static/images/e658e6a2de4643b0855b0c682ff53b21_skybox4_orig.jpg",
+    },
+    {
+        ours: "static/images/0b7b0f378d4d44099c46904d72d52925_skybox2_ours.jpg",
+        instruct: "static/images/0b7b0f378d4d44099c46904d72d52925_skybox2_ig2g_removesofa_30k.jpg",
+        nerfiller: "static/images/0b7b0f378d4d44099c46904d72d52925_skybox2_nerfiller_dilate7.jpg",
+        original: "static/images/0b7b0f378d4d44099c46904d72d52925_skybox2_orig.jpg",
+    },
+];
+
+
+
 // Function to generate HTML structure for image pairs
 function generateImagePairs(imagePairs, containerId, prefix) {
     const imagesContainer = document.getElementById(containerId);
@@ -319,6 +348,32 @@ function generateImageSetsSimple(imageSets, containerId, prefix) {
     });
 }
 
+function generateImageSetsSimple2(imageSets, containerId, prefix) {
+    const imagesContainer = document.getElementById(containerId);
+
+    imageSets.forEach((set, index) => {
+        const container = document.createElement('div');
+        container.classList.add('container', 'is-centered');
+        container.innerHTML = `
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-max-desktop">
+                    <h2 class="title is-4">Example ${index + 1}</h2>
+                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.instruct}', ${index}, 'sd')">Compare to Instruct-GS2GS</a>
+                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.nerfiller}', ${index}, 'lama')"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.original}', ${index}, 'lgpn')"> &nbsp; &nbsp; &nbsp; Compare to input &nbsp; &nbsp; &nbsp; </a>
+                    <br><br>
+                    <img src="${set.ours}" id="comp2-set-${index}" />
+                </div>
+            </div>
+        `;
+        imagesContainer.appendChild(container);
+
+        new BeforeAfter({
+            id: '#' + prefix + '-pair2-' + index
+        });
+    });
+}
+
 function pairDiv(containerId, img1, img2, type, index) {
     const container = document.getElementById(containerId);
     container.innerHTML = `
@@ -356,7 +411,7 @@ function generateImageSets(imageSets, containerId) {
                 <div class="column is-max-desktop">
                     <h2 class="title is-4">Example ${index + 1}</h2>
                     <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.sd}', 'SD-2.0-inpainting', ${index})">Compare to Vanilla SD</a>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.cn_shelf}', 'Thibaud Canny ControlNet', ${index})"> &nbsp; &nbsp; Compare to Thibaud Canny ControlNet &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.cn_shelf}', 'Thibaud Canny ControlNet', ${index})">Compare to Thibaud Canny ControlNet</a>
                     <div id="container-comp-set-${index}" class="mainSection">
                         <div id="comp-${index}" class="bal-container">
                             <div class="bal-after">
@@ -387,6 +442,79 @@ function generateImageSets(imageSets, containerId) {
 
         new BeforeAfter({
             id: '#comp-' + index
+        });
+    });
+}
+
+function pairDiv2(containerId, img1, img2, type, index) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = `
+        <div id="comp-${index}" class="bal-container">
+            <div class="bal-after">
+                <img src="${img1}">
+                <div class="bal-afterPosition afterLabel">Ours</div>
+            </div>
+            <div class="bal-before">
+                <div class="bal-before-inset">
+                    <img src="${img2}">
+                    <div class="bal-beforePosition beforeLabel">${type}</div>
+                </div>
+            </div>
+            <div class="bal-handle">
+                <span class="handle-left-arrow"></span>
+                <span class="handle-right-arrow"></span>
+            </div>
+        </div>
+    `;
+
+    new BeforeAfter({
+        id: '#comp2-' + index
+    });
+}
+
+function generateImageSets2(imageSets, containerId) {
+    const imagesContainer = document.getElementById(containerId);
+
+    imageSets.forEach((set, index) => {
+        const container = document.createElement('div');
+        container.classList.add('container', 'is-centered');
+        container.innerHTML = `
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-max-desktop">
+                    <h2 class="title is-4">Example ${index + 1}</h2>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.instruct}', 'Instruct-GS2GS', ${index})">Compare to Instruct-GS2GS</a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.nerfiller}', 'Nerfiller', ${index})"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.original}', 'Original', ${index})"> &nbsp; &nbsp; &nbsp; Compare to input &nbsp; &nbsp; &nbsp; </a>
+                    <div id="container-comp2-set-${index}" class="mainSection">
+                        <div id="comp2-${index}" class="bal-container">
+                            <div class="bal-after">
+                                <img src="${set.ours}">
+                                <div class="bal-afterPosition afterLabel">Ours</div>
+                            </div>
+                            <div class="bal-before">
+                                <div class="bal-before-inset">
+                                    <img src="${set.instruct}">
+                                    <div class="bal-beforePosition beforeLabel">Instruct-GS2GS</div>
+                                </div>
+                            </div>
+                            <div class="bal-handle">
+                                <span class="handle-left-arrow"></span>
+                                <span class="handle-right-arrow"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                new BeforeAfter({
+                    id: '#comp2-${index}'
+                });
+            </script>
+        `;
+        imagesContainer.appendChild(container);
+
+        new BeforeAfter({
+            id: '#comp2-' + index
         });
     });
 }

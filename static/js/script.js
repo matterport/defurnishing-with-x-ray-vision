@@ -318,71 +318,10 @@ function generateImagePairs(imagePairs, containerId, prefix) {
     });
 }*/
 
-function updatePair(img, index, type) {
-    document.getElementById("comp-set-".concat(index)).src = img;
-    //document.getElementById("button-comp-".concat(type).concat("-").concat(index)).focus = true;
-}
-
-function updatePair2(img, index, type) {
-    document.getElementById("comp2-set-".concat(index)).src = img;
-    //document.getElementById("button-comp-".concat(type).concat("-").concat(index)).focus = true;
-}
-
-function generateImageSetsSimple(imageSets, containerId, prefix) {
-    const imagesContainer = document.getElementById(containerId);
-
-    imageSets.forEach((set, index) => {
-        const container = document.createElement('div');
-        container.classList.add('container', 'is-centered');
-        container.innerHTML = `
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-max-desktop">
-                    <h2 class="title is-4">Example ${index + 1}</h2>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.sd}', ${index}, 'sd')">Compare to Vanilla SD</a>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.cn_shelf}', ${index}, 'cn_shelf')"> &nbsp; &nbsp; &nbsp; Compare to Thibaud Canny ControlNet &nbsp; &nbsp; &nbsp; </a>
-                    <br><br>
-                    <img src="${set.ours}" id="comp-set-${index}" />
-                </div>
-            </div>
-        `;
-        imagesContainer.appendChild(container);
-
-        new BeforeAfter({
-            id: '#' + prefix + '-pair-' + index
-        });
-    });
-}
-
-function generateImageSetsSimple2(imageSets, containerId, prefix) {
-    const imagesContainer = document.getElementById(containerId);
-
-    imageSets.forEach((set, index) => {
-        const container = document.createElement('div');
-        container.classList.add('container', 'is-centered');
-        container.innerHTML = `
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-two-fifths">
-                    <h2 class="title is-4">Example ${index + 1}</h2>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.instruct}', ${index}, 'instruct')">Compare to Instruct-GS2GS</a>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.nerfiller}', ${index}, 'nerfiller')"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.original}', ${index}, 'original')"> &nbsp; &nbsp; &nbsp; Compare to input &nbsp; &nbsp; &nbsp; </a>
-                    <br><br>
-                    <img src="${set.ours}" id="comp2-set-${index}" />
-                </div>
-            </div>
-        `;
-        imagesContainer.appendChild(container);
-
-        new BeforeAfter({
-            id: '#' + prefix + '-pair2-' + index
-        });
-    });
-}
-
-function pairDiv(containerId, img1, img2, type, index) {
+function pairDiv(containerId, img1, img2, type, prefix, index) {
     const container = document.getElementById(containerId);
     container.innerHTML = `
-        <div id="comp-${index}" class="bal-container">
+        <div id="${prefix}-${index}" class="bal-container">
             <div class="bal-after">
                 <img src="${img1}">
                 <div class="bal-afterPosition afterLabel">Ours</div>
@@ -401,7 +340,7 @@ function pairDiv(containerId, img1, img2, type, index) {
     `;
 
     new BeforeAfter({
-        id: '#comp-' + index
+        id: '#' + prefix + '-' + index
     });
 }
 
@@ -415,8 +354,8 @@ function generateImageSets(imageSets, containerId) {
             <div class="columns is-centered has-text-centered">
                 <div class="column is-max-desktop">
                     <h2 class="title is-4">Example ${index + 1}</h2>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.sd}', 'SD-2.0-inpainting', ${index})">Compare to Vanilla SD</a>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.cn_shelf}', 'Thibaud Canny ControlNet', ${index})">Compare to Thibaud Canny ControlNet</a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.sd}', 'SD-2.0-inpainting', 'comp', ${index})">Compare to Vanilla SD</a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp-set-${index}', '${set.ours}', '${set.cn_shelf}', 'Thibaud Canny ControlNet', 'comp', ${index})">Compare to Thibaud Canny ControlNet</a>
                     <div id="container-comp-set-${index}" class="mainSection">
                         <div id="comp-${index}" class="bal-container">
                             <div class="bal-after">
@@ -451,32 +390,6 @@ function generateImageSets(imageSets, containerId) {
     });
 }
 
-function pairDiv2(containerId, img1, img2, type, index) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = `
-        <div id="comp2-${index}" class="bal-container">
-            <div class="bal-after">
-                <img src="${img1}">
-                <div class="bal-afterPosition afterLabel">Ours</div>
-            </div>
-            <div class="bal-before">
-                <div class="bal-before-inset">
-                    <img src="${img2}">
-                    <div class="bal-beforePosition beforeLabel">${type}</div>
-                </div>
-            </div>
-            <div class="bal-handle">
-                <span class="handle-left-arrow"></span>
-                <span class="handle-right-arrow"></span>
-            </div>
-        </div>
-    `;
-
-    new BeforeAfter({
-        id: '#comp2-' + index
-    });
-}
-
 function generateImageSets2(imageSets, containerId) {
     const imagesContainer = document.getElementById(containerId);
 
@@ -487,9 +400,9 @@ function generateImageSets2(imageSets, containerId) {
             <div class="columns is-centered has-text-centered">
                 <div class="column is-two-fifths">
                     <h2 class="title is-4">Example ${index + 1}</h2>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.instruct}', 'Instruct-GS2GS', ${index})">Compare to Instruct-GS2GS</a>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.nerfiller}', 'Nerfiller', ${index})"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
-                    <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.original}', 'Original', ${index})"> &nbsp; &nbsp; &nbsp; Compare to input &nbsp; &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp2-set-${index}', '${set.ours}', '${set.instruct}', 'Instruct-GS2GS', 'comp2', ${index})">Compare to Instruct-GS2GS</a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp2-set-${index}', '${set.ours}', '${set.nerfiller}', 'Nerfiller', 'comp2', ${index})"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="pairDiv('container-comp2-set-${index}', '${set.ours}', '${set.original}', 'Original', 'comp2', ${index})"> &nbsp; &nbsp; &nbsp; Compare to input &nbsp; &nbsp; &nbsp; </a>
                     <div id="container-comp2-set-${index}" class="mainSection">
                         <div id="comp2-${index}" class="bal-container">
                             <div class="bal-after">

@@ -323,6 +323,11 @@ function updatePair(img, index, type) {
     //document.getElementById("button-comp-".concat(type).concat("-").concat(index)).focus = true;
 }
 
+function updatePair2(img, index, type) {
+    document.getElementById("comp2-set-".concat(index)).src = img;
+    //document.getElementById("button-comp-".concat(type).concat("-").concat(index)).focus = true;
+}
+
 function generateImageSetsSimple(imageSets, containerId, prefix) {
     const imagesContainer = document.getElementById(containerId);
 
@@ -358,9 +363,9 @@ function generateImageSetsSimple2(imageSets, containerId, prefix) {
             <div class="columns is-centered has-text-centered">
                 <div class="column is-max-desktop">
                     <h2 class="title is-4">Example ${index + 1}</h2>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.instruct}', ${index}, 'sd')">Compare to Instruct-GS2GS</a>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.nerfiller}', ${index}, 'lama')"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
-                    <a class="button is-normal is-rounded is-light" onclick="updatePair('${set.original}', ${index}, 'lgpn')"> &nbsp; &nbsp; &nbsp; Compare to input &nbsp; &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.instruct}', ${index}, 'instruct')">Compare to Instruct-GS2GS</a>
+                    <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.nerfiller}', ${index}, 'nerfiller')"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
+                    <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.original}', ${index}, 'original')"> &nbsp; &nbsp; &nbsp; Compare to input &nbsp; &nbsp; &nbsp; </a>
                     <br><br>
                     <img src="${set.ours}" id="comp2-set-${index}" />
                 </div>

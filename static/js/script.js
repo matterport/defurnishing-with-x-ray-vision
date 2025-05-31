@@ -454,7 +454,7 @@ function generateImageSets(imageSets, containerId) {
 function pairDiv2(containerId, img1, img2, type, index) {
     const container = document.getElementById(containerId);
     container.innerHTML = `
-        <div id="comp-${index}" class="bal-container">
+        <div id="comp2-${index}" class="bal-container">
             <div class="bal-after">
                 <img src="${img1}">
                 <div class="bal-afterPosition afterLabel">Ours</div>

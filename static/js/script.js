@@ -361,7 +361,7 @@ function generateImageSetsSimple2(imageSets, containerId, prefix) {
         container.classList.add('container', 'is-centered');
         container.innerHTML = `
             <div class="columns is-centered has-text-centered">
-                <div class="column is-max-desktop">
+                <div class="column is-two-fifths">
                     <h2 class="title is-4">Example ${index + 1}</h2>
                     <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.instruct}', ${index}, 'instruct')">Compare to Instruct-GS2GS</a>
                     <a class="button is-normal is-rounded is-light" onclick="updatePair2('${set.nerfiller}', ${index}, 'nerfiller')"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>
@@ -485,7 +485,7 @@ function generateImageSets2(imageSets, containerId) {
         container.classList.add('container', 'is-centered');
         container.innerHTML = `
             <div class="columns is-centered has-text-centered">
-                <div class="column is-max-desktop">
+                <div class="column is-two-fifths">
                     <h2 class="title is-4">Example ${index + 1}</h2>
                     <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.instruct}', 'Instruct-GS2GS', ${index})">Compare to Instruct-GS2GS</a>
                     <a class="button is-normal is-rounded is-light" onclick="pairDiv2('container-comp2-set-${index}', '${set.ours}', '${set.nerfiller}', 'Nerfiller', ${index})"> &nbsp; &nbsp; Compare to Nerfiller &nbsp; &nbsp; </a>

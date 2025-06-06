@@ -63,22 +63,22 @@ const imagePairs = [
         after: "static/images/27750c841e004f24b71cb1a30c57f847_eq_defurnished_cn.jpg",
     },
     {
-        after: "static/images/2e3eb5ed1c2b422689bd6920078459ac_eq.jpg",
-        before: "static/images/2e3eb5ed1c2b422689bd6920078459ac_eq_defurnished_cn.jpg"
+        before: "static/images/2e3eb5ed1c2b422689bd6920078459ac_eq.jpg",
+        after: "static/images/2e3eb5ed1c2b422689bd6920078459ac_eq_defurnished_cn.jpg"
     },
     {
-        after: "static/images/3b49385430e142aa8251b52fdd7921f9_eq.jpg",
-        before: "static/images/3b49385430e142aa8251b52fdd7921f9_eq_defurnished_cn.jpg"
+        before: "static/images/3b49385430e142aa8251b52fdd7921f9_eq.jpg",
+        after: "static/images/3b49385430e142aa8251b52fdd7921f9_eq_defurnished_cn.jpg"
     },
     // {after: "static/images/00683-KCvzhHEhdwB/926160b70cdf4ac8aedc43a3f8419a76_eq_inpainted.jpg",
     // before: "static/images/00683-KCvzhHEhdwB/926160b70cdf4ac8aedc43a3f8419a76_eq.jpg"},
     {
-        after: "static/images/5bdfa8a121ce4ed8acea5f9645130eb6_eq.jpg",
-        before: "static/images/5bdfa8a121ce4ed8acea5f9645130eb6_eq_defurnished_cn.jpg"
+        before: "static/images/5bdfa8a121ce4ed8acea5f9645130eb6_eq.jpg",
+        after: "static/images/5bdfa8a121ce4ed8acea5f9645130eb6_eq_defurnished_cn.jpg"
     },
     {
-        after: "static/images/6b17a011f9894a709f22a0a7bf4ea71b_eq.jpg",
-        before: "static/images/6b17a011f9894a709f22a0a7bf4ea71b_eq_defurnished_cn.jpg"
+        before: "static/images/6b17a011f9894a709f22a0a7bf4ea71b_eq.jpg",
+        after: "static/images/6b17a011f9894a709f22a0a7bf4ea71b_eq_defurnished_cn.jpg"
     },
     // {after: "static/images/hmm-00061-duthTPisf28/1a6fb3bee9344b4286abf067bae43672_eq_inpainted.jpg",
     // before: "static/images/hmm-00061-duthTPisf28/1a6fb3bee9344b4286abf067bae43672_eq.jpg"},
@@ -87,8 +87,8 @@ const imagePairs = [
     // {after: "static/images/hmm-00439-mjvN6RDLsPm/cbe88db9e5be4a3c84de4d3a8e71ca62_eq_inpainted.jpg",
     // before: "static/images/hmm-00439-mjvN6RDLsPm/cbe88db9e5be4a3c84de4d3a8e71ca62_eq.jpg"},
     {
-        after: "static/images/f90112829bc2462980e0ec5b9c0809cc_eq.jpg",
-        before: "static/images/f90112829bc2462980e0ec5b9c0809cc_eq_defurnished_cn.jpg"
+        before: "static/images/f90112829bc2462980e0ec5b9c0809cc_eq.jpg",
+        after: "static/images/f90112829bc2462980e0ec5b9c0809cc_eq_defurnished_cn.jpg"
     },
     // {after: "static/images/x-00053-kAMF2R7PCqX/99bbecc142d54f06adbb120f9866f543_eq_inpainted.jpg",
     // before: "static/images/x-00053-kAMF2R7PCqX/99bbecc142d54f06adbb120f9866f543_eq.jpg"},
